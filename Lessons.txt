@@ -1,0 +1,30 @@
+1.) Download .Net core sdk from dotnet.microsoft.com
+2.) Install NodeJS, VS Code and GIT
+
+3.) Install Extention
+       .Auto Close Tag
+       .Auto Rename Tag
+       .Bracket Pair Colorizer 2
+       .C#  
+       .C# Extention
+       .ES7 React/Redux
+       .Material Icon Theme 
+       .Nuget Package Manager
+       .SQ Lite
+
+3.) Create slm , 3 class lib and 1 api projects (dotnet new sln, dotnet new webapi -n API, dotnet new classlib -n Persistence)
+
+4.) add projects to the solution (dotnet sln add Domain/, similarly add all 4 projects)
+
+5.) We need reference of Domain and Persistence in Application, so add
+    go to Application folder (dotnet add reference ../Domain, similarly for Persistence)
+
+6.) Similarly add reference of Application in API
+
+7.) Similarly add reference of Domain in Persistence
+
+8.) Open the file in VS code at reactivities level,, and yes to the popup so that .vscode folder can be added
+
+9.) To run api file dotnet run 
+
+8.) run the projects by dotnet run -p API/
