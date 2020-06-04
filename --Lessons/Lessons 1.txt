@@ -28,3 +28,12 @@
 9.) To run api file dotnet run 
 
 8.) run the projects by dotnet run -p API/
+
+
+-----------------------------------------------------------------------------------------
+
+9.) Install Microsoft.EntityFrameworkCore,Microsoft.EntityFrameworkCoreSQLite,Microsoft.EntityFramewrokCore.Design same verison from npm(ctrl+shift+-p)
+
+10.) Migration -- dotnet ef migrations add InitialCreate -p Persistence/ -s API/
+
+11.) Update Migration from Program.cs
