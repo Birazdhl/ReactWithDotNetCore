@@ -1,0 +1,21 @@
+1.) Create New Class Activity and define it in DataContext and migrate it
+
+2.) add Seed.cs in Persistence and manage it in Program.cs
+
+3.) Install Mediatr.Extemtions.Microsoft.DependencyInjection from npm in Application Project.
+
+4.) Add services.AddMediatR(typeof(List.Handler).Assembly) in Startup.cs (for List Class) 
+
+5.) Add Activities Controller, List Class in Application 
+
+6.) Add Detailes Handler, and method in Controller
+
+7.) Add Create Handler, and method in Controller
+
+8.) Creatng Snippets For Query and Command
+
+9.) User> Preference > User Snippets > New Snippets file for 'Project Name'
+
+10.) Create Edit Handler , and method in Contoller
+
+11.) Create Delete Handler , and method in Contoller

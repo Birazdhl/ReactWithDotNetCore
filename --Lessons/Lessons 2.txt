@@ -1,3 +1,27 @@
 1.) create react app inside Reactivities (npx create-react-app client-app --use-npm --typescript)
 
 2.) set isolateModules to false in tsconfig.json 
+
+3.) set extention for react-devtools-experimental
+
+4.) Install axios in client-app (npm install axios)
+
+5.) In order to get access to API from react we need to add CorsPoliy
+     
+     a. Goto startup.cs and in ConfigureServices bellow services.AddDbContext ass:-
+ 
+           services.AddCors(opt => {
+                opt.AddPolicy("CorsPolicy", policy => {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+                });
+            });
+
+     b. add this middle ware before useRouting in Configure
+          
+          app.UseCors("CorsPolicy");
+
+6.) install semantic-ui (you can see semantic-ui-document from https://react.semantic-ui.com/) 
+      (npm install semantic-ui-react)
+
+7.) Add <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" /> 
+    to index.html
