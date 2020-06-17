@@ -57,4 +57,26 @@
 // Selecting an Individual Activity
   24.) Pass props and handlers through App.tsx
 
-// A
+// Adding an edit mode to dispaly the form
+  25.) pass editMode and setEditMode from APP.TSX in respective components
+
+// Adding a Create Activity
+  26.) Add Two Bottom on ActivityForm 
+
+// Controlled Components
+  27.) Handle Change
+
+// Submit Handler
+
+  28.) Create Handler for both create and edit 
+  29.) Install uuid (npm install uuid) 
+  30.) npm install @types/uuid
+
+// Fixing the date issue
+   32.) date time local in type
+
+//Delete Handler
+  33. Delete it
+
+//  Fixing issues in date in froms
+  
