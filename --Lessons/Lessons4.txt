@@ -1,0 +1,60 @@
+1.) Create 2 New Folder app and feature inside src and inside app folder create another folder called layout
+    called layout( we can structure the folder by our wish)
+2.) rename Index.css to styles.css and move it to app/layout
+3.) Remoce unnesessary iles like App.css,App.test.tsx, App.tsx,logo.svg
+4.) Move App.tsx to src/app/layout
+5.) change index.css to ./app/layout/styles.css in index.tsx 
+6.) remove import './App.css'; from App.tsx
+7.) change value (previous one) to activities
+
+//For class Component (Old Version)
+
+8.) Create new model in src/app called Model and activity interface
+9.) and use it in App.tsx
+10.) define parameter type in
+
+      interface IState {
+  	activities : IActivity[] 
+	}
+
+	class  App extends Component<{}, IState> {
+		 readonly state: IState = {
+    		activities : []
+  	}
+
+	 axios.get<IActivity[]>('http://localhost:5000/api/Activities')
+
+//For Hooks 
+
+ 11.) Replace Class with Hooks Component
+
+// Adding the navigation bar
+
+12.) Add nav folder in src/features and create navbar.tsx inside it and import it in App.tsx
+13.) Use Code freom semantic-ui
+14.) foriamge create a new folder in public called assets
+
+//Adding styles
+15.)  inlinne.. or we can add in styles.css inside layout
+
+// Adding Activity Dashboard
+  16.) Semantic UI Grid System
+  17.) Remove List from App.tsx and create a new dashboard for Activities in src/features/activities/ (ActivityDashboard.tex)
+
+//Creating a Activity List
+
+  18.) Create new Component in src/features/activities/ 
+  19.) Use Semantic - List (ActivityList.tsx)
+
+// Adding Activity Details
+   20.) Create new Component in src/features/activities/Detail (activityDetail.tsx)
+   21.) Use Semantic - Card
+
+//Form Component
+  22.) Create New Folder called Form inside activities(ActivityForm.tsx)
+  23.) Add it to ActivityDashboard
+
+// Selecting an Individual Activity
+  24.) Pass props and handlers through App.tsx
+
+// A
