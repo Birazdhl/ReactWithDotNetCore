@@ -1,0 +1,25 @@
+// Axios
+
+// Setting up the agent.ts file
+
+  1.) Add agnet.ts inside app/api/agent.ts and create all necessary Activities Call from here
+
+// Listing our Activities
+  2.) Changing in App.tsx
+
+//Updating Our Activitities
+  3.) Changing in App.tsx
+
+// Adding Delay to our Components
+  4.) agents.ts add sleep function ani manage it
+
+// Adding a Loading Component
+
+  5.) Create LoadingComponent inside app/layout/LoadingComponet.tsx
+
+// Adding a loading indicator on Submit Button
+
+  6.) Creating Submit and Submitting funtion 
+
+// Isolating Loading Indiactor on the delete button
+  7.) target
