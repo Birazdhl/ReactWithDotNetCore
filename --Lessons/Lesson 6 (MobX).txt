@@ -1,0 +1,54 @@
+// Introduction to MobX
+
+1.) Observable // state that are supposed to be change
+2.) Action // function that changes the state
+3.) Computed // function that returns compueted value from states
+4.) Reaction
+5.) Observer // observes the observale state and re-renders components
+
+// Setting up MobX
+
+6.) Install MobX (npm install mobx mobx-react-lite)
+7.) Create new folder in app called stores and inside it create a new ts file activityStore.ts
+8.) add new parameter inside tsconfig.json "experimentalDecorators": true
+9.) Create Class ActivityStore and export it using context
+10.) Define observable and we can use it on App.tsx 
+
+// Re Facotring the activity list to use the stores
+
+11.) move api call of activity list to stores
+12.) Make App component, ActivityList, AcitvityDashboard Observer
+
+// Re Factoring the select Activity
+
+ 13.) Reacator it 
+
+ // Async Await
+
+ 14.) async in activityStore.ts
+
+ // Refactoring Create Activity
+15.) Refactor it
+
+//MobX Computed Property
+ (sorting in a date order)
+16.)  change activites to activites.date
+
+// Using an observale map
+17.) refactor on store.ts
+
+//Adding Edit Activity Action
+18.) Refactore it
+
+// Handle DELETE Functionality
+19.) Refactore it
+
+// Cleaning up our code
+20.)  clean it
+
+// Strict Mode on MobX
+
+21.) import configure and runInAction in store.ts and define it and use it whenever there is state changed after Await
+
+// Adding MobX dev tools
+22.) Add extention add mobx developer tools
