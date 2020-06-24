@@ -12,7 +12,7 @@
        .Nuget Package Manager
        .SQ Lite
 
-3.) Create sl , 3 class lib and 1 api projects (dotnet new sln, dotnet new webapi -n API, dotnet new classlib -n Persistence)
+3.) Create sl , 3 class lib and 1 api projects (dotnet new sln, dotnet new webapi -n API, dotnet new classlib -n Persistence, Domain, Applcation)
 
 4.) add projects to the solution (dotnet sln add Domain/, similarly add all 4 projects)
 
@@ -32,14 +32,14 @@
 
 -----------------------------------------------------------------------------------------
 
-9.) Install Microsoft.EntityFrameworkCore,Microsoft.EntityFrameworkCoreSQLite,Microsoft.EntityFramewrokCore.Design same verison from npm(ctrl+shift+-p)
+9.) Install Microsoft.EntityFrameworkCore,Microsoft.EntityFrameworkCoreSQLite,Microsoft.EntityFramewrokCore.Design same verison from npm(ctrl+shift+-p) in Persistence
 
-10.) Create Db context class in Persistence
+10.) Create DATA context class in Persistence
 
 11.) Add Connection in Startup.cs class
 
-12.) Add Connection Strings on LaunchSetting
+12.) Add Connection Strings on appsettings
 
-13.) Migration -- dotnet ef migrations add InitialCreate -p Persistence/ -s API/
+13.) Migration -->  dotnet ef migrations add InitialCreate -p Persistence/ -s API/
 
 14.) Update Migration from Program.cs
