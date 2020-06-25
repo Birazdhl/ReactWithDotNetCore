@@ -1,0 +1,62 @@
+https://reacttraining.com/react-router/web/api/Router
+
+
+// Setting up React Router
+1.) npm install react-router-dom
+2.) import {BrowserRouter} from 'react-router-dom' in index.tsx (error occurs)
+3.) npm install @types/react-router-dom
+4.) Put App inside <BrowserRouter></BrowserRouter> in App.tsx
+
+// Setting up our Routes
+
+5.) create new folder home in features and inside it create new file called HomePage.tsx
+6.) Create a Route in App.tsx 
+
+// Adding Links and NavLink
+
+7.) Goto NavBar and set as Link and to , on each DOM
+
+// Adding a details link and getting the Activity from api
+
+8.) Add Route Path in App.tsx and on Button Click
+9.) Create New Method action loadActivity and getActivity in store.ts (error upto here)
+
+
+// Using Route Parameter
+
+10.) import routeComponentProps as a propos in ActivtiyDetails
+11.) UseEffect in ActivtiyDetails
+12.) Make an interface ani use it in routeComponentProps
+
+// Navidating via code
+
+13.) import hisorty and then go back
+
+// Routing to the edit from
+
+14.) add array route in App.tsx
+15.) Make Changes in ActivityForm.tsx
+
+// Using a Fully Uncontrolled Component with a key to reset component state
+
+16.) use clear in in useEffect in ActivityForm
+17.) create new action in activityStore.ts to clean up activity
+18.) Key, WithRouter, in App.tsx
+
+// Navigating After Submission
+
+19.) after create activity put history.push
+20.) See warning if any and make Changes
+
+// Make HomePage outside of NavBar
+
+21.) Add go to in HomePage
+22.) Create Route Path in App.tsx
+
+// Scrolling to the top of the Navigation Page
+
+23.) add a new file in layout call ScrollToTop.tsx
+24.) Wrap App.tsx in ScrollToTop
+
+// For loading activities after we move to activites put the code from app.tsx into ActivityDashboarf
+
