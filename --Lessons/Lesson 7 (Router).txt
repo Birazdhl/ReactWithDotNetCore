@@ -26,7 +26,7 @@ https://reacttraining.com/react-router/web/api/Router
 
 10.) import routeComponentProps as a propos in ActivtiyDetails
 11.) UseEffect in ActivtiyDetails
-12.) Make an interface ani use it in routeComponentProps
+12.) Make an interface and use it in routeComponentProps
 
 // Navidating via code
 

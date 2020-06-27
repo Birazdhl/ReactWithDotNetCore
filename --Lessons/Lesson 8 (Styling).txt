@@ -1,0 +1,25 @@
+
+// Styling to Activities List
+
+1.) Create a new tsx inside Activity Dashboard called ActivityListItem
+2.) Paste all the map inside ActivityListItem and aslo remove the delete button
+
+//Grouping activity by date
+
+3.) Make 2 activities of same date 
+4.) create function called groupActivitiesByDate  and modify activitiesByDate in appstore.ts
+    (groupActivitiesByDate returns the list by grouping by date)
+5.) Modifiy in Activity List
+
+// Styling the activity List ActivityListItem
+6.) Modifiy Activity List Item accordingly
+7.) Remove Segment from Activity List
+
+//Activity Details Page
+8.) Create 4 NEW COMPONENT INSIDE activities>Details
+9.) Format ActivityDetails.tsx,,interms of all chat,info,sidebar
+
+// Desiging Home Page
+
+10.) Style HomePage
+11.) Change in styles.css
