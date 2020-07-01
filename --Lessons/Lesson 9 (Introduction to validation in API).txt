@@ -1,0 +1,62 @@
+// Adding Validation in the API using Data Annotations
+
+1.) Use Requied on model/command on title [Requied]
+(breakpoint lessons)
+(not required)
+
+// Adding validation in the API using Fluent Validation
+
+2.) add new package in FluentValidation -> FluentValidation.AspNetCore in Application Project
+3.) Create a new CommandValidator in between command and handler to handle the model
+4.) add FluentValidation in startup.cs 
+5.) Do same thing on Edit.cs
+
+
+// Creating a derived Exception class for Rest exceptions
+
+6.) Add a new folder inside Application/Errors and inside it create a file RestException.cs
+
+// Adding Error Handling in Middleware
+
+7.) Add a new folder called Middleware inside API and inside it create ErrorHandlingMiddleware.cs
+
+// Using out error handling Middleware
+
+8.) Remove from is development in startup.cs and add our custom Middleware
+9.) Throw RestException from Delete 
+10.) Past same  code on Edit
+
+// Using axios interceptors to catch Errors
+
+11.) Use interceptors in agent.ts
+12.) Create new component called NotFouns.tsx
+13.) Add a route for not found component
+14.) Wrap all the route component inside Route
+
+// Throwing Erros in Client
+
+15.) throw error in agent.ts
+16.) throw erros in activityStore in loadActivity
+17.) throw error in ActivityDetail
+18.) put history on dependency error
+
+// Adding Routing functionality to axios
+
+19.) Use Router instead of BrowseRouter in index.tsx
+20.) history.push in agent.ts
+21.) Remove previous code from activityStore and ActivityDetail
+
+// Handling an invalid GUID on a get request
+
+22.) Modify in axios interceptors in agent.ts
+
+// Adding toast notification
+
+23.) throw new exception in Details temporaily
+24.) Install toastify (npm install react-toastify)
+25.) import toastify in index.tsx
+26.) Add toast container in App.tsx
+27.) Modify in agent.ts
+
+// Handling netwrok error in axios
+

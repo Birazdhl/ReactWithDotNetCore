@@ -93,7 +93,6 @@ class ActivityStore {
 
 
     } catch (error) {
-
       runInAction('error activity',() => {
         this.submitting = false;
       })
