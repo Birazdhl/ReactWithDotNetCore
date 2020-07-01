@@ -60,3 +60,5 @@
 
 // Handling netwrok error in axios
 
+28.) Modify in agents.ts
+29.) to drop database dotnet ef database drop -p Persistence/ -s API/
