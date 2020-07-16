@@ -1,0 +1,86 @@
+
+//Setting up React Final Form.
+
+1.) Add Link to Manage Event in ActivityDetailedHeader
+2.) npm install react-final-form final-form (install it)
+3.) Changes in ActivityForm.tsx
+4.) Import FinalForm and Field form react-final-form
+5.) Insert all form in react final form
+
+// Creating a reuseable Text input Field
+
+6.) Create New Folder in app called common and inside it create form Folder
+7.) Inside Form Folder create TextInput.tsx
+
+// Refactoring the form to use React Final Form
+
+8.) Remove all onChange Hanlder and replace it with Field and Component
+9.) Remove onHandleChange Function
+
+// Creating reuseable field for TextArea
+
+10.) Create New File Inside Form called TextAreaInput.tsx
+
+// Creating a reuseable Select Input Field
+
+11.) Create a New File Inside Form called SelectInput.tsx
+12.) Edit in Activity Form
+13.) Create a new folder inside form called options
+
+// Setting up React Widgets
+
+14.) npm install react-widgets react-widgets-date-fns
+15.) npm install date-fns@^2.0.0 (accorging to version in warn)
+16.)  import 'react-widgets/dist/css/react-widgets.css'; in index.tsx
+17.) import dateFnsLocalizer from 'react-widgets-date-fns'; in index.tsx
+18.) Create a new folder inside client-app  called typings-custom
+19.) Inside it create a new file react-widgets-date-fns.d.ts and declare inside it
+20.) ./typings-custom/**/*.ts inside include in tsconfig.json
+
+// Create a reuseable Date Input field
+
+21.) Create a file called DateInput.tsx inside forms in common 
+22.) npm install @types/react-widgets
+23.) Change in ActivityForm
+24.) Change string to date in activity.ts
+
+// Formatiing the dates using Date-FNS
+
+25.) Remove Date.Parse in activityStore.ts and make other Changes
+26.) search activity.date in vs code and import format and change it in every activity.date
+     (example AcitiviyListItem)
+
+// Creating Seperate Date and Time Fields
+
+27.) Change in DateInput
+28.) Changes in Activiy Form,, for seperate date and Time
+29.) Create new activity.ts for form property
+30.) Remove ! from date
+
+// Combine Date and Time Inputs
+
+31.) Create new folder inside common called util and inside it create new file called utl.ts
+32.) Change in Activity Form
+
+// Initializing a Form with Data
+
+33.) Changes in loadActivity in activityStores.ts
+34.) Change in ActivityForm in use Effect
+35.) Add new class in acitivity.ts
+36.) More Changes in ActivityForm
+
+// Submiting data to the server
+
+37.) changes in ActivityForm
+38.) Changes in agent.ts 
+39.) Changes in activityStore.ts
+
+// Form Error Handling
+
+40.) Small Changes in activityStore
+
+// From Validation
+
+41.) npm install revalidate
+42.) npm install @types/revalidate
+43.) Changes in ActivityForm

@@ -29,7 +29,7 @@
 // Using axios interceptors to catch Errors
 
 11.) Use interceptors in agent.ts
-12.) Create new component called NotFouns.tsx
+12.) Create new component called NotFound.tsx
 13.) Add a route for not found component
 14.) Wrap all the route component inside Route
 

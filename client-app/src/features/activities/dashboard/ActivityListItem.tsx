@@ -2,6 +2,7 @@ import React from 'react'
 import { Item, Button, Segment, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { IActivity } from '../../../app/Models/activity'
+import { format } from 'date-fns'
 
 
 export const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {
@@ -12,20 +13,20 @@ export const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }
 
             <Segment>
                 <Item.Group>
-                <Item>
-                    <Item.Image size='tiny' circular src='/assets/user.png' />
-                    <Item.Content>
-                        <Item.Header as='a'>{activity.title}</Item.Header>
-                        <Item.Description>
-                            Hosted By Biraz
+                    <Item>
+                        <Item.Image size='tiny' circular src='/assets/user.png' />
+                        <Item.Content>
+                            <Item.Header as='a'>{activity.title}</Item.Header>
+                            <Item.Description>
+                                Hosted By Biraz
                         </Item.Description>
-                    </Item.Content>
-                </Item>
+                        </Item.Content>
+                    </Item>
                 </Item.Group>
 
             </Segment>
             <Segment>
-                <Icon name='clock' />{activity.date}
+                <Icon name='clock' />{format(activity.date, 'h:mm a')}
                 <Icon name='marker' />{activity.venue}, {activity.city}
             </Segment>
             <Segment secondary>
@@ -34,10 +35,10 @@ export const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }
             <Segment clearing>
                 <span>{activity.description}</span>
                 <Button
-                                as={Link} to={`/activities/${activity.id}`}
-                                floated="right"
-                                content="View"
-                                color="blue" />
+                    as={Link} to={`/activities/${activity.id}`}
+                    floated="right"
+                    content="View"
+                    color="blue" />
             </Segment>
 
         </Segment.Group>
