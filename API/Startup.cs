@@ -1,14 +1,26 @@
 using API.Middleware;
 using Application.Activities;
+using Application.Interface;
+using Domain;
 using FluentValidation.AspNetCore;
+using Infrastructure.Secutiry;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Mvc.Authorization;
+
 using Persistence;
+using System.Text;
 
 namespace API
 {
@@ -27,6 +39,7 @@ namespace API
             services.AddDbContext<DataContext>(opt => {
                 opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
+
             services.AddCors(opt => {
                 opt.AddPolicy("CorsPolicy", policy => {
                     policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
@@ -34,8 +47,40 @@ namespace API
             });
             services.AddControllers();
             services.AddMediatR(typeof(List.Handler).Assembly);
-            services.AddMvc(option => option.EnableEndpointRouting = false)
-                    .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Create>());        
+
+            services.AddMvc(opt  => 
+            {
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                opt.Filters.Add(new AuthorizeFilter(policy));
+                opt.EnableEndpointRouting = false;
+                
+             })
+                    .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Create>());
+
+            services.TryAddSingleton<ISystemClock, SystemClock>();
+            var builder = services.AddIdentityCore<AppUser>();
+            var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
+            identityBuilder.AddEntityFrameworkStores<DataContext>();
+            identityBuilder.AddSignInManager<SignInManager<AppUser>>();
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"]));
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                     .AddJwtBearer(opt =>
+                     {
+                         opt.TokenValidationParameters = new TokenValidationParameters
+                         {
+                             ValidateIssuerSigningKey = true,
+                             IssuerSigningKey = key,
+                             ValidateAudience = false,
+                             ValidateIssuer = false
+                         };
+                     });
+
+            services.AddScoped<IJwtGenerator, JwtGenerator>();
+            services.AddScoped<IUserAccessor, UserAccessor>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +94,8 @@ namespace API
             }
 
             // app.UseHttpsRedirection();
+
+            app.UseAuthentication();
 
             app.UseCors("CorsPolicy");
 

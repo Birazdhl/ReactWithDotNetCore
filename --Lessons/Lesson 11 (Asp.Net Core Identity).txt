@@ -1,0 +1,117 @@
+ // Adding the user Entity
+
+1.) Create a new file AppUser.cs in Domain
+2.) Add a nudget package Microsoft.AspNetCore.Indetity.EntityFramewrorCore in Domain Project
+3.) Change dbContext to IdentityDbContext<AppUser>
+4.) base.OnModelCreating(builder);
+5.) dotnet ef migrations add "AddIdentity" -p Persistence/ -s API/
+
+// Configure Identity in out startup class
+
+6.) var builder = services.AddIdentityCore<AppUser>(); 
+    var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
+     identityBuilder.AddEntityFrameworkStores<DataContext>();
+     identityBuilder.AddSignInManager<SignInManager<AppUser>>();
+ 
+   on ConfigureServices in Startup.cs
+
+		in start up class 
+
+// Seeding User to the database
+
+7.) Create UserManager Seed.cs 
+8.) Also in Program.cs in Seed.SeedData
+
+// Adding a Login Handler
+
+9.) Called a folder called User inside Application and inside it create new file called Login.cs
+
+// Base API Controller
+
+10.) In API > COntroller,, create a new calss called BaseController
+11.) edit and filter other controller
+
+// Addin a User API Controller
+
+12.) In API > COntroller,, create a new calss called UserController
+
+// Adding a user objects
+
+13.) Create a new flder Inside User called User.cs
+14.) Changes in Login.cs and UserController
+
+// Adding Infrastucre Projects
+
+15.) Create a new project called Infrastrucutre
+16.) Add to the solution
+17.) dotnet add reference ../Application in Infrastructure
+18.) dotnet add reference ../Infrastructure/
+
+// Adding the JWT Generator interface and class
+
+19.) Add a new folder inside Application called Interface and inside it create a interface file called IJwtGenerator
+20.) Add a new folder inside Infrastrucutre call security and inside it ahh a file called JwtGenerator.cs
+21.) add scope in startup.cs
+
+// Generating a JWT Token
+
+22.) add nudget called System.IdentityModel.Tokens.Jwt in Infrastructure and edit on JwtGenerator.cs
+
+// Returning JWT Token on successful login
+
+23.) Edit on Login.cs
+24.) Test From Postman Now and see if token is returned
+
+// Securing out App with Authorization
+
+25.) sevices.AddAuthorization in Startup.cs using JwtBearerDefaults
+26.) app.UseAuthentication(); in dependencies
+    (using [Authorize] inside action method if needed)
+
+// Dotnet user secrets
+
+27.) add 	  <UserSecretsId>1b5ee15e-1de8-4e69-8c22-ab5e6c8ccf8f</UserSecretsId> in API.csproj  inside <PropertyGroup>
+
+27.) Add user secret token -->> dotnet user-secrets add "TokenKey" "super secret key" -p API/
+
+28.) Replace "Super User Key" by Configuration["TokenKey"] in jwtGenerator and Startup.cs
+
+// Creating Authorization Policy
+
+29.) change in startup.cs
+
+        services.AddMvc(opt  => 
+            {
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                opt.Filters.Add(new AuthorizeFilter(policy));
+                opt.EnableEndpointRouting = false;
+                
+             })
+                    .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Create>());
+
+30.) Add [AllowAnonymous] in UserController
+
+// Adding a Register Handler
+
+31.) Create a new class called Register.cs in User in Application
+
+// Testing user registration
+
+32.) Add Register method in UserController.cs
+
+// Adding a Fluent Validator in extention for password
+
+33.) Add a new folder in Application called Validators and inside it add a new class called ValidatorExtentions.cs
+34.) Change in Register.cs
+
+// Retrieving the Username from the token in Http Context
+
+35.) Add a new interface inside Api>Interface called IUserAccessor
+36.) Create its inplementtion class in Securti in Infrastrucutre called UserAccessor
+37.) Add Scope in User Startup.cs
+
+// Getting Currenlty Loggedin User.
+
+38.) Create new class called CurrentUser.cs inside user in Application
+39.) Create CurrentUser Method in UserController
+40.) Move AllowAnonymous to Login and Register
